@@ -1,0 +1,16 @@
+# Plantão Mendex (Next.js) — plantao.mendex.app.br
+# Banco: database "plantao" no container "postgres" (rede proxy). HTTPS pelo Caddy de /opt/caddy.
+name: plantao-mendex-app-br
+services:
+  app:
+    build: .
+    image: plantao-mendex:latest
+    container_name: plantao.mendex.app.br
+    restart: always
+    env_file: .env
+    networks:
+      proxy:
+        aliases: [plantao-app]
+networks:
+  proxy:
+    external: true

@@ -1,0 +1,52 @@
+@import "tailwindcss";
+
+/* identidade: azul-petróleo + âmbar */
+@theme {
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --color-tinta: #0f2a3d;
+  --color-tinta-2: #17405c;
+  --color-destaque: #f59e0b;
+  --color-destaque-escuro: #b45309;
+  --color-fundo: #f3f6f9;
+  --color-linha: #dfe6ee;
+  --color-cinza: #5b6b7d;
+}
+
+@layer base {
+  body { @apply bg-fundo text-tinta antialiased; }
+  ::selection { @apply bg-destaque/30; }
+}
+
+@utility btn {
+  @apply inline-flex h-10 cursor-pointer items-center justify-center gap-2 rounded-md px-4 text-sm font-semibold whitespace-nowrap transition disabled:cursor-default disabled:opacity-60;
+}
+@utility btn-primario {
+  @apply btn bg-tinta text-white hover:bg-tinta-2;
+}
+@utility btn-destaque {
+  @apply btn bg-destaque text-tinta hover:brightness-105;
+}
+@utility btn-contorno {
+  @apply btn h-9 border border-linha bg-white px-3 text-[13px] text-tinta hover:border-tinta;
+}
+@utility btn-perigo {
+  @apply btn h-9 border border-red-300 bg-white px-3 text-[13px] text-red-700 hover:bg-red-600 hover:text-white;
+}
+@utility entrada {
+  @apply h-10 w-full rounded-md border border-linha bg-white px-3 text-sm outline-none focus:border-tinta focus:ring-2 focus:ring-tinta/15;
+}
+@utility rotulo {
+  @apply mb-1 block text-xs font-semibold tracking-wide text-cinza uppercase;
+}
+@utility cartao {
+  @apply rounded-lg border border-linha bg-white p-4 shadow-sm sm:p-5;
+}
+@utility tabela {
+  @apply w-full text-left text-sm [&_td]:border-t [&_td]:border-linha [&_td]:px-3 [&_td]:py-2 [&_th]:px-3 [&_th]:py-2 [&_th]:text-xs [&_th]:font-semibold [&_th]:tracking-wide [&_th]:text-cinza [&_th]:uppercase;
+}
+
+@media print {
+  .nao-imprimir { display: none !important; }
+  body { background: white; }
+  .cartao { box-shadow: none; border: none; padding: 0; }
+}
