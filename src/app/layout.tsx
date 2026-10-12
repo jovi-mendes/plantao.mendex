@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   title: { default: "Plantão Mendex", template: "%s · Plantão Mendex" },
   description: "Controle de atendimento de clientes e roleta de corretores no plantão de vendas",
 };
-export const viewport: Viewport = { themeColor: "#0f2a3d" };
+export const viewport: Viewport = { themeColor: "#0a1d42" };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (

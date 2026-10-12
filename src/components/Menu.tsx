@@ -1,6 +1,7 @@
 "use client";
 // Menu em cascata: CADASTRO / ATENDIMENTO / RELATÓRIO (no celular vira lista expansível)
 import Link from "next/link";
+import Marca from "./Marca";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 
@@ -55,15 +56,14 @@ export default function Menu({ supervisor, nome, sair }: { supervisor: boolean; 
   return (
     <header ref={ref} className="nao-imprimir sticky top-0 z-30 bg-tinta text-white shadow">
       <div className="mx-auto flex h-14 max-w-7xl items-center gap-2 px-4">
-        <Link href="/" className="mr-4 flex items-center gap-2 font-bold tracking-tight">
-          <span className="grid size-8 place-items-center rounded-md bg-destaque text-tinta">P</span>
-          <span>Plantão <span className="text-destaque">Mendex</span></span>
+        <Link href="/" className="mr-4 shrink-0" aria-label="Plantão Mendex — início">
+          <Marca clara altura={24} sistema="Plantão" />
         </Link>
         <nav className="hidden flex-1 items-center gap-1 md:flex">
           {grupos.map((g) => (
             <div key={g.titulo} className="relative" onMouseEnter={() => setAberto(g.titulo)} onMouseLeave={() => setAberto(null)}>
               <button type="button" aria-expanded={aberto === g.titulo} onClick={() => setAberto(aberto === g.titulo ? null : g.titulo)}
-                className={`flex h-14 items-center gap-1 px-3 text-sm font-semibold uppercase tracking-wide hover:text-destaque ${g.itens.some((i) => rota.startsWith(i.href)) ? "text-destaque" : ""}`}>
+                className={`flex h-14 items-center gap-1 px-3 text-sm font-semibold uppercase tracking-wide hover:text-ciano ${g.itens.some((i) => rota.startsWith(i.href)) ? "text-ciano" : ""}`}>
                 {g.titulo}
                 <svg viewBox="0 0 20 20" className={`size-4 transition ${aberto === g.titulo ? "rotate-180" : ""}`} fill="currentColor"><path d="M5.5 7.5 10 12l4.5-4.5" stroke="currentColor" strokeWidth="1.5" fill="none" /></svg>
               </button>

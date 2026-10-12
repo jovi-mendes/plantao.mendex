@@ -1,15 +1,16 @@
 @import "tailwindcss";
 
-/* identidade: azul-petróleo + âmbar */
+/* identidade Mendex: paleta extraída da logo (marinho → azul royal → azul vivo → ciano) */
 @theme {
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
-  --color-tinta: #0f2a3d;
-  --color-tinta-2: #17405c;
-  --color-destaque: #f59e0b;
-  --color-destaque-escuro: #b45309;
-  --color-fundo: #f3f6f9;
-  --color-linha: #dfe6ee;
-  --color-cinza: #5b6b7d;
+  --color-tinta: #0a1d42;
+  --color-tinta-2: #12336e;
+  --color-destaque: #0b74de;
+  --color-destaque-escuro: #075bb3;
+  --color-ciano: #02b6fb;
+  --color-fundo: #f1f5fb;
+  --color-linha: #d9e3f0;
+  --color-cinza: #536479;
 }
 
 @layer base {
@@ -24,7 +25,7 @@
   @apply btn bg-tinta text-white hover:bg-tinta-2;
 }
 @utility btn-destaque {
-  @apply btn bg-destaque text-tinta hover:brightness-105;
+  @apply btn bg-destaque text-white hover:bg-destaque-escuro;
 }
 @utility btn-contorno {
   @apply btn h-9 border border-linha bg-white px-3 text-[13px] text-tinta hover:border-tinta;
